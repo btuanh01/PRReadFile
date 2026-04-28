@@ -24,7 +24,7 @@ export interface DuplicateGroup {
   transactionIds: string[];
 }
 
-export interface SheetDiagnostic {
+interface SheetDiagnostic {
   fileName: string;
   sheetName: string;
   format: number;
@@ -316,7 +316,7 @@ export function parseExcelFiles(files: ParseInput[]): ParseResult {
   return detectDuplicates(transactions, diagnostics);
 }
 
-export function detectDuplicates(transactions: Transaction[], diagnostics: SheetDiagnostic[] = []): ParseResult {
+function detectDuplicates(transactions: Transaction[], diagnostics: SheetDiagnostic[] = []): ParseResult {
   const groups: Record<string, Transaction[]> = {};
   // reset duplicate flags (re-running on cached data)
   transactions.forEach((tx) => {

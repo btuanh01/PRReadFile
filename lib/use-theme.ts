@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const KEY = "bsa.theme";
 
-export type Theme = "light" | "dark";
+type Theme = "light" | "dark";
 
 function getInitial(): Theme {
   if (typeof window === "undefined") return "light";
